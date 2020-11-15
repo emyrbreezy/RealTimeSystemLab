@@ -74,7 +74,7 @@ void delay() //delay for hyperperiod
 	
 	time_accumulated = 0;
     
-	printf("\nSlack Time ended\n\n");	  
+	printf("\nRestarting the process...\n\n");	  
 
 }
 
@@ -147,6 +147,7 @@ while(1)
 		total_time();}
 	else{
 		delay();
+		main();
 		}	
 	
 	if(time_accumulated<=20){
@@ -156,7 +157,8 @@ while(1)
 		haziq_computertime();
 		total_time();}
 	else{
-		delay();}
+		delay();
+		main();}
 		
 	if(time_accumulated<=20){
 		timer_start();
@@ -165,7 +167,8 @@ while(1)
 		haziq_computertime();
 		total_time();}
 	else{
-		delay();}
+		delay();
+		main();}
 		
 	if(time_accumulated<=20){
 		timer_start();
@@ -174,9 +177,13 @@ while(1)
 		haziq_computertime();
 		total_time();}
 	else{
-		delay();}
+		delay();
+		main();}
 	
+
+
 }
+
 }
 
 
