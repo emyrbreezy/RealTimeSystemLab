@@ -58,19 +58,19 @@ void delay() //delay for hyperperiod
 void timer_start()
 {
 
-	gettimeofday(&start, NULL);
+	gettimeofday(&start, NULL);	//start timer based on system time
 
 }
 
 void timer_end()
 {
 
-	double elapsedTime;
+	double elapsedTime;	//time elapsed variable
 
 
-	gettimeofday(&end, NULL);
-	elapsedTime += (end.tv_usec - start.tv_usec);
-	printf("Execution Time: %f Microseconds.\n", elapsedTime);
+	gettimeofday(&end, NULL);		//end timer
+	elapsedTime += (end.tv_usec - start.tv_usec);		//calculate timer time elapsed
+	printf("Execution Time: %f Microseconds.\n", elapsedTime);	//show elapsed time in micro seconds
 
 
 }
@@ -102,9 +102,8 @@ void main()
 
 {
 
-//actually kena pkai pointer. but dunno la mcm mana nak pakai.
 
-	while(1){
+	while(1){		//loop forever
 
 	timer_start();
 	task1();
