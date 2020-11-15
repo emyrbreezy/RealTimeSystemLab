@@ -56,7 +56,7 @@ void task4()		//simple task that runs for 2 sec
 	time_accumulated = time_accumulated + task_4_duration;
 }
 
-void delay() //delay for hyperperiod
+void delay() // unused time delay before hyperperiod
 
 {	
 	int time_unused;
