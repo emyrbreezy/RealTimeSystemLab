@@ -10,7 +10,8 @@
 
 //int myArray[17]={4,1,1.8,0,1,0,2,1.8,1,0,1.8,1,0,1,0,1.8,0} 
 
-int t;
+
+float time_accumulated;
 struct timeval start, end;
 
 
@@ -18,12 +19,14 @@ void task1()		//simple task that runs for 1 sec.
 {
 	printf("Task 1:\n\n");
 	sleep(1);
+	time_accumulated = time_accumulated + 1;
 }
 
 void task2()		//simple task that runs for 1.8 sec
 {
 	printf("Task 2:\n\n");
 	sleep(1.8);
+	time_accumulated = time_accumulated + 1.8;
 	
 }
 
@@ -31,6 +34,7 @@ void task3()		//simple task that runs for 1 sec
 {
 	printf("Task 3:\n\n");
 	sleep(1);
+	time_accumulated = time_accumulated + 1;
 }
 
 
@@ -38,39 +42,48 @@ void task4()		//simple task that runs for 2 sec
 {
 	printf("Task 4:\n\n");
 	sleep(2);
-
+	time_accumulated = time_accumulated + 2;
 }
 
 void delay() //delay for hyperperiod
 
-{	printf("Hyper period started\n");
-	for(int i = 0;i < 20;i++)
+{	
+	int time_unused;
+	int x = time_accumulated;
+	int hyperperiod = 20;
+	
+	time_unused = hyperperiod - time_accumulated;
+	
+	printf("Starting Slack Time\n");
+	for(int i = 0;i < time_unused;i++)
 	{
 	        printf("#");
         	fflush(stdout);
 		sleep(1);
 	}
+	
+	time_accumulated = 0;
     
-	printf("\nHyperperiod ended in: 20 seconds\n\n");	  
+	printf("\nSlack Time ended\n\n");	  
 
 }
 
 void timer_start()
 {
 
-	gettimeofday(&start, NULL);	//start timer based on system time
+	gettimeofday(&start, NULL);
 
 }
 
 void timer_end()
 {
 
-	double elapsedTime;	//time elapsed variable
+	double elapsedTime;
 
 
-	gettimeofday(&end, NULL);		//end timer
-	elapsedTime += (end.tv_usec - start.tv_usec);		//calculate timer time elapsed
-	printf("Execution Time: %f Microseconds.\n", elapsedTime);	//show elapsed time in micro seconds
+	gettimeofday(&end, NULL);
+	elapsedTime += (end.tv_usec - start.tv_usec);
+	printf("Execution Time: %f Microseconds.\n", elapsedTime);
 
 
 }
@@ -97,44 +110,68 @@ void haziq_computertime()
 
 }
 
+void total_time()
+{
+
+printf("Time accumulated :%.2f\n",time_accumulated);
+
+}
+
+
 
 void main()
 
 {
 
+//where it all happens
 
-	while(1){		//loop forever
-
-	timer_start();
-	task1();
-	timer_end();
-	haziq_computertime();
-
- 
-	timer_start();   
-	task2();
-	timer_end();
-	haziq_computertime();
+while(1)
+{
 
 
-	timer_start();
-	task3();
-	timer_end();
-	haziq_computertime();
+	if(time_accumulated<=20){
+		timer_start();
+		task1();
+		timer_end();
+		haziq_computertime();
+		total_time();}
+	else{
+		delay();
+		}	
+	
+	if(time_accumulated<=20){
+		timer_start();
+		task2();
+		timer_end();
+		haziq_computertime();
+		total_time();}
+	else{
+		delay();}
+		
+	if(time_accumulated<=20){
+		timer_start();
+		task3();
+		timer_end();
+		haziq_computertime();
+		total_time();}
+	else{
+		delay();}
+		
+	if(time_accumulated<=20){
+		timer_start();
+		task4();
+		timer_end();
+		haziq_computertime();
+		total_time();}
+	else{
+		delay();}
+	
 
-
-	timer_start();
-	task4();
-	timer_end();
-	haziq_computertime();
-
-	delay();
 
 }
 
   
 
 }
-
 
 
