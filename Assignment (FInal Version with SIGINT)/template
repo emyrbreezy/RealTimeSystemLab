@@ -1,0 +1,5 @@
+gcc task1.c -o t1 -lrt
+gcc task2.c -o t2 -lrt
+gcc task3.c -o t3 -lrt
+gcc task4.c -o t4 -lrt
+./master
