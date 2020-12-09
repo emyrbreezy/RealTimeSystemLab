@@ -18,7 +18,8 @@ float task_1_duration=1.0;
 float task_2_duration=1.8;
 float task_3_duration=1.0;
 float task_4_duration=2.0;
-int hyperperiod=20.0;
+int hyperperiod=19.0;
+
 
 void task1()		//simple task that runs for 1 sec. 
 {
